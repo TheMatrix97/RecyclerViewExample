@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.dataset = data; //asignamos el dataset del adapter
         recyclerView.setAdapter(adapter);
     }
+    //MOAR INFO => https://developer.android.com/guide/topics/ui/layout/recyclerview
 
     private void iniDataSet(ArrayList<String> data) {
         data.add("1");
