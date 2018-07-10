@@ -42,6 +42,9 @@ public class MyCustomAdapter extends RecyclerView.Adapter<MyCustomAdapter.MyCust
                 }
             });
         }
+        public void setItem(String aux){
+            textView.setText(aux);
+        }
     }
 
 
@@ -56,7 +59,8 @@ public class MyCustomAdapter extends RecyclerView.Adapter<MyCustomAdapter.MyCust
 
     @Override
     public void onBindViewHolder(@NonNull MyCustomViewHolder holder, int position) {
-        holder.textView.setText(dataset.get(position));
+        String itemstr = dataset.get(position);
+        holder.setItem(itemstr);
 
     }
 
