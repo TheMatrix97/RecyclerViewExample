@@ -16,6 +16,7 @@ import java.util.ArrayList;
 public class MyCustomAdapter extends RecyclerView.Adapter<MyCustomAdapter.MyCustomViewHolder> {
 
     public ArrayList<String> dataset; //set de datos a mostrar
+    public RecyclerViewTouchDelegate delegate;
 
     public class MyCustomViewHolder extends RecyclerView.ViewHolder{ //vista de cada tarjeta a mostrar
         TextView textView; //textView que se encuentra en la cardview del view_item xml
@@ -28,14 +29,14 @@ public class MyCustomAdapter extends RecyclerView.Adapter<MyCustomAdapter.MyCust
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.v("I","holi");
+                    delegate.didSelectedItemAtRow(getAdapterPosition());
+
                 }
             });
             cardView.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View v) {
-                    Log.v("I","longClick");
-                    dataset.add("1.2");
+                    delegate.longPressedItemAtRow(getAdapterPosition());
                     //notifyDataSetChanged(); actualizar dataset
                     //notifyItemInserted(int pos) .... más info => https://developer.android.com/reference/android/support/v7/widget/RecyclerView.Adapter#notifyItemChanged(int)
                     return true; //true para consumir el click
